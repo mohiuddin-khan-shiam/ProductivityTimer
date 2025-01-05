@@ -68,7 +68,7 @@ main {
     margin-top: 40px;
     display: grid;
     gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: 1fr 1fr;
 }
 
 section {
@@ -93,8 +93,8 @@ h2 {
 
 /* Combined Timer Type and Share Timer Section */
 #timer-and-share {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
@@ -261,3 +261,4 @@ body.dark-mode button:hover {
         padding: 10px;
     }
 }
+
