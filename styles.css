@@ -137,6 +137,16 @@ button:hover {
     animation: fadeIn var(--transition-speed) ease-in-out;
 }
 
+button.stop-button {
+    background-color: #e53935;
+    color: var(--text-light);
+    margin-left: 10px;
+}
+
+button.stop-button:hover {
+    background-color: #b71c1c;
+}
+
 /* To-Do List Styles */
 #task-list {
     list-style: none;
