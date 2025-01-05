@@ -211,18 +211,17 @@ button.stop-button:hover {
 
 #task-list li {
     background-color: var(--card-light);
-    padding: 15px;
+    padding: 10px 15px; /* Adjust padding for a balanced look */
     border: 1px solid #DDD;
     margin-bottom: 10px;
     border-radius: 10px;
     display: flex;
-    align-items: center; /* Aligns the text and button vertically */
     justify-content: space-between; /* Ensures proper spacing between text and button */
+    align-items: center; /* Aligns items vertically in the center */
     transition: background-color var(--transition-speed);
-    overflow: hidden; /* Prevents content overflow */
-    word-wrap: break-word; /* Wraps long text within the container */
-    white-space: nowrap; /* Prevents excessive wrapping of text */
-    text-overflow: ellipsis; /* Truncates text if it overflows */
+    overflow: hidden;
+    gap: 10px; /* Adds spacing between text and button */
+    word-break: break-word; /* Prevents overflowing text */
 }
 
 body.dark-mode #task-list li {
@@ -233,15 +232,23 @@ body.dark-mode #task-list li {
     background-color: var(--accent-color);
     color: var(--text-light);
     border: none;
-    padding: 10px 20px; /* Adds padding for better button size */
-    border-radius: 50px;
+    padding: 8px 16px; /* Reduces padding for better size */
+    border-radius: 20px; /* Rounded corners for a softer appearance */
     cursor: pointer;
-    transition: background-color var(--transition-speed);
-    flex-shrink: 0; /* Prevents button from shrinking */
+    transition: background-color var(--transition-speed), transform 0.2s ease-in-out;
+    flex-shrink: 0; /* Ensures the button does not shrink */
 }
 
 #task-list li button:hover {
     background-color: #C0001A;
+    transform: scale(1.05); /* Adds a slight zoom effect on hover */
+}
+
+#task-list li span {
+    flex-grow: 1; /* Ensures the text takes available space */
+    white-space: nowrap; /* Prevents unnecessary wrapping of text */
+    text-overflow: ellipsis; /* Truncates overflowing text with ellipsis */
+    overflow: hidden; /* Prevents text from overflowing outside the container */
 }
 
 
