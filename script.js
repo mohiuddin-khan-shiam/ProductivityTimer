@@ -19,6 +19,8 @@ const shareableLinkInput = document.getElementById("shareable-link");
 const newTaskInput = document.getElementById("new-task");
 const addTaskButton = document.getElementById("add-task");
 const taskList = document.getElementById("task-list");
+const copyLinkButton = document.getElementById("copy-link");
+const copyFeedback = document.getElementById("copy-feedback");
 
 // Global Variables
 let countdownInterval;
@@ -54,7 +56,7 @@ function switchTimerType() {
 function startCountdown() {
     clearInterval(countdownInterval);
 
-    const eventName = eventNameInput.value;
+    const eventName = eventNameInput.value.trim();
     const eventTime = new Date(eventTimeInput.value);
 
     if (!eventName || isNaN(eventTime.getTime())) {
@@ -112,7 +114,7 @@ function startPomodoro() {
 
 // Generate Shareable Link
 function generateShareableLink() {
-    const eventName = eventNameInput.value;
+    const eventName = eventNameInput.value.trim();
     const eventTime = eventTimeInput.value;
 
     if (!eventName || !eventTime) {
@@ -126,16 +128,19 @@ function generateShareableLink() {
     shareableLinkInput.value = url.toString();
 }
 
-// Load Timer from URL
-function loadTimerFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    const eventName = params.get("event");
-    const eventTime = params.get("date");
-
-    if (eventName && eventTime) {
-        eventNameInput.value = eventName;
-        eventTimeInput.value = eventTime;
-        startCountdown();
+// Copy to Clipboard
+function copyToClipboard() {
+    if (shareableLinkInput.value) {
+        navigator.clipboard.writeText(shareableLinkInput.value).then(() => {
+            copyFeedback.style.display = "inline";
+            setTimeout(() => {
+                copyFeedback.style.display = "none";
+            }, 2000);
+        }).catch((err) => {
+            console.error("Failed to copy link:", err);
+        });
+    } else {
+        alert("No link available to copy. Generate a link first.");
     }
 }
 
@@ -156,29 +161,18 @@ function addTask() {
     newTaskInput.value = "";
 }
 
+// Load Timer from URL
+function loadTimerFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const eventName = params.get("event");
+    const eventTime = params.get("date");
 
-// Add Copy to Clipboard Functionality
-function copyToClipboard() {
-    const linkInput = document.getElementById('shareable-link');
-    const feedback = document.getElementById('copy-feedback');
-
-    if (linkInput.value) {
-        navigator.clipboard.writeText(linkInput.value).then(() => {
-            // Show feedback
-            feedback.style.display = 'inline';
-            setTimeout(() => {
-                feedback.style.display = 'none';
-            }, 2000);
-        }).catch(err => {
-            console.error('Failed to copy link:', err);
-        });
-    } else {
-        alert('No link available to copy. Generate a link first.');
+    if (eventName && eventTime) {
+        eventNameInput.value = eventName;
+        eventTimeInput.value = eventTime;
+        startCountdown();
     }
 }
-
-// Event Listener for Copy Link Button
-document.getElementById('copy-link').addEventListener('click', copyToClipboard);
 
 // Event Listeners
 themeToggle.addEventListener("click", toggleTheme);
@@ -186,6 +180,7 @@ timerTypeSelect.addEventListener("change", switchTimerType);
 startCountdownButton.addEventListener("click", startCountdown);
 pomodoroStartButton.addEventListener("click", startPomodoro);
 generateLinkButton.addEventListener("click", generateShareableLink);
+copyLinkButton.addEventListener("click", copyToClipboard);
 addTaskButton.addEventListener("click", addTask);
 
 // Initialize
