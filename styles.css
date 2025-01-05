@@ -14,6 +14,8 @@
     --button-hover: #3ed5a5;
     --title-color-light: #4A90E2;
     --title-color-dark: #FFD700;
+    --header-gradient-light: linear-gradient(90deg, #4A90E2, #50E3C2);
+    --header-gradient-dark: linear-gradient(90deg, #1E1E1E, #333333);
 }
 
 body {
@@ -37,14 +39,19 @@ body.dark-mode {
 
 header {
     width: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: var(--header-gradient-light);
     color: var(--text-light);
-    padding: 30px 20px;
+    padding: 20px 20px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 20px 20px;
+    transition: background var(--transition-speed);
+}
+
+body.dark-mode header {
+    background: var(--header-gradient-dark);
 }
 
 header h1 {
