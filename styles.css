@@ -1,13 +1,14 @@
 /* General Styles */
 :root {
-    --primary-color: #6200ea;
-    --secondary-color: #03dac5;
-    --background-light: #f0f0f0;
-    --background-dark: #121212;
-    --text-light: #ffffff;
-    --text-dark: #333333;
-    --font-family: 'Poppins', sans-serif;
-    --transition-speed: 0.3s;
+    --primary-color: #4A90E2;
+    --secondary-color: #50E3C2;
+    --accent-color: #D0021B;
+    --background-light: #F5F7FA;
+    --background-dark: #1A1A1A;
+    --text-light: #FFFFFF;
+    --text-dark: #4A4A4A;
+    --font-family: 'Inter', sans-serif;
+    --transition-speed: 0.4s;
 }
 
 body {
@@ -28,74 +29,80 @@ header {
     width: 100%;
     background-color: var(--primary-color);
     color: var(--text-light);
-    padding: 10px 20px;
+    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 20px 20px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 header button {
     background-color: var(--secondary-color);
-    color: var(--text-dark);
+    color: var(--text-light);
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color var(--transition-speed);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
 header button:hover {
-    background-color: #02b3a4;
+    background-color: #3ed5a5;
+    transform: scale(1.05);
 }
 
 main {
     width: 90%;
-    max-width: 800px;
-    margin-top: 20px;
+    max-width: 1200px;
+    margin-top: 40px;
     display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 section {
     background-color: var(--text-light);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 section:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
+    font-weight: 600;
 }
 
 input, select, button {
     font-size: 1rem;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 12px;
+    margin: 12px 0;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: box-shadow var(--transition-speed);
+    border: 2px solid #E0E0E0;
+    border-radius: 10px;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 input:focus, select:focus, button:focus {
-    box-shadow: 0 0 5px var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
     outline: none;
 }
 
@@ -103,13 +110,13 @@ button {
     background-color: var(--primary-color);
     color: var(--text-light);
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
 button:hover {
-    background-color: #4500b5;
+    background-color: #357ABD;
     transform: scale(1.05);
 }
 
@@ -138,13 +145,15 @@ button:hover {
 }
 
 button.stop-button {
-    background-color: #e53935;
+    background-color: var(--accent-color);
     color: var(--text-light);
     margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 50px;
 }
 
 button.stop-button:hover {
-    background-color: #b71c1c;
+    background-color: #C0001A;
 }
 
 /* To-Do List Styles */
@@ -154,28 +163,28 @@ button.stop-button:hover {
 }
 
 #task-list li {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    margin-bottom: 5px;
-    border-radius: 5px;
+    background-color: #F7F8FA;
+    padding: 15px;
+    border: 1px solid #DDD;
+    margin-bottom: 10px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 #task-list li button {
-    background-color: #e53935;
+    background-color: var(--accent-color);
     color: var(--text-light);
     border: none;
-    padding: 5px;
-    border-radius: 3px;
+    padding: 10px;
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color var(--transition-speed);
 }
 
 #task-list li button:hover {
-    background-color: #b71c1c;
+    background-color: #C0001A;
 }
 
 /* Light/Dark Mode Styles */
@@ -185,22 +194,22 @@ body.dark-mode {
 }
 
 body.dark-mode header {
-    background-color: #1e1e1e;
+    background-color: #333;
     color: var(--text-light);
 }
 
 body.dark-mode header button {
-    background-color: #333;
+    background-color: var(--primary-color);
     color: var(--text-light);
 }
 
 body.dark-mode section {
-    background-color: #1e1e1e;
+    background-color: #262626;
     color: var(--text-light);
 }
 
 body.dark-mode button {
-    background-color: #333;
+    background-color: #444;
     color: var(--text-light);
 }
 
@@ -221,17 +230,17 @@ body.dark-mode button:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
     section {
-        padding: 15px;
+        padding: 20px;
     }
 
     input, select, button {
         font-size: 0.9rem;
-        padding: 8px;
+        padding: 10px;
     }
 }
