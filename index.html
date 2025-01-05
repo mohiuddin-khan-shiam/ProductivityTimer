@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A versatile countdown timer with multiple features including light/dark mode, progress visualization, and more.">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Countdown Timer</h1>
+        <button id="theme-toggle">Switch to Dark Mode</button>
+    </header>
+
+    <main>
+        <!-- Timer Selection -->
+        <section id="timer-options">
+            <h2>Select Timer Type</h2>
+            <select id="timer-type">
+                <option value="countdown">Event Countdown</option>
+                <option value="pomodoro">Pomodoro Timer</option>
+            </select>
+        </section>
+
+        <!-- Countdown Timer -->
+        <section id="countdown-timer">
+            <h2>Set Countdown</h2>
+            <input type="text" id="event-name" placeholder="Event Name">
+            <input type="datetime-local" id="event-time">
+            <button id="start-countdown">Start Timer</button>
+
+            <div id="countdown-display">
+                <h3 id="countdown-event">Event: </h3>
+                <div id="time-remaining">
+                    <span id="days">00</span> Days
+                    <span id="hours">00</span> Hours
+                    <span id="minutes">00</span> Minutes
+                    <span id="seconds">00</span> Seconds
+                </div>
+            </div>
+        </section>
+
+        <!-- Pomodoro Timer -->
+        <section id="pomodoro-timer" style="display: none;">
+            <h2>Pomodoro Timer</h2>
+            <div id="pomodoro-settings">
+                <label for="work-duration">Work Duration (minutes):</label>
+                <input type="number" id="work-duration" min="1" max="60" value="25">
+                <label for="break-duration">Break Duration (minutes):</label>
+                <input type="number" id="break-duration" min="1" max="15" value="5">
+                <button id="start-pomodoro">Start Pomodoro</button>
+            </div>
+
+            <div id="pomodoro-display">
+                <h3 id="pomodoro-status">Work Time</h3>
+                <div id="pomodoro-time">00:00</div>
+            </div>
+        </section>
+
+        <!-- Shareable Link -->
+        <section id="share-link">
+            <h2>Share Your Timer</h2>
+            <button id="generate-link">Generate Shareable Link</button>
+            <input type="text" id="shareable-link" readonly>
+        </section>
+
+        <!-- To-Do List -->
+        <section id="to-do-list">
+            <h2>To-Do List</h2>
+            <input type="text" id="new-task" placeholder="Add a new task">
+            <button id="add-task">Add Task</button>
+            <ul id="task-list"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made with ❤️ by [Shiam]</p>
+    </footer>
+</body>
+
+</html>
