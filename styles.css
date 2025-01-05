@@ -41,6 +41,9 @@ header h1 {
     margin: 0;
     font-size: 2rem;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 header button {
@@ -88,11 +91,18 @@ h2 {
     font-weight: 600;
 }
 
-/* Merged Timer Type and Share Timer Section */
+/* Combined Timer Type and Share Timer Section */
 #timer-and-share {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+#timer-and-share select,
+#timer-and-share button,
+#timer-and-share input {
+    width: 100%;
+    margin-top: 10px;
 }
 
 input, select, button {
