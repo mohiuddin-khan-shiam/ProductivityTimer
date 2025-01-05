@@ -88,6 +88,13 @@ h2 {
     font-weight: 600;
 }
 
+/* Merged Timer Type and Share Timer Section */
+#timer-and-share {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 input, select, button {
     font-size: 1rem;
     padding: 12px;
