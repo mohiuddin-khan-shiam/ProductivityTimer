@@ -1,0 +1,166 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    width: 100%;
+    background-color: #6200ea;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header button {
+    background-color: #fff;
+    color: #6200ea;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+header button:hover {
+    background-color: #eee;
+}
+
+main {
+    width: 90%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+input, select, button {
+    font-size: 1rem;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4500b5;
+}
+
+/* Countdown Timer Styles */
+#countdown-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+#time-remaining span {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* Pomodoro Timer Styles */
+#pomodoro-display {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+/* To-Do List Styles */
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+#task-list li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#task-list li button {
+    background-color: #e53935;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#task-list li button:hover {
+    background-color: #b71c1c;
+}
+
+/* Light/Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode header button {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode section {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode button {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode button:hover {
+    background-color: #555;
+}
