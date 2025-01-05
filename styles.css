@@ -2,11 +2,13 @@
 :root {
     --primary-color: #4A90E2;
     --secondary-color: #50E3C2;
-    --accent-color: #D0021B;
-    --background-light: #F5F7FA;
-    --background-dark: #1A1A1A;
-    --text-light: #FFFFFF;
-    --text-dark: #4A4A4A;
+    --accent-color: #FF4081;
+    --background-light: #FFFFFF;
+    --background-dark: #121212;
+    --card-light: #F5F5F5;
+    --card-dark: #1E1E1E;
+    --text-light: #E0E0E0;
+    --text-dark: #333333;
     --font-family: 'Inter', sans-serif;
     --transition-speed: 0.4s;
 }
@@ -48,6 +50,7 @@ header h1 {
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
+    color: var(--text-light);
 }
 
 header button {
@@ -78,11 +81,11 @@ main {
 }
 
 section {
-    background-color: var(--text-light);
+    background-color: var(--card-light);
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
     color: var(--text-dark);
 }
 
@@ -92,7 +95,7 @@ section:hover {
 }
 
 body.dark-mode section {
-    background-color: #262626;
+    background-color: var(--card-dark);
     color: var(--text-light);
 }
 
@@ -192,7 +195,7 @@ button.stop-button:hover {
 }
 
 #task-list li {
-    background-color: #F7F8FA;
+    background-color: var(--card-light);
     padding: 15px;
     border: 1px solid #DDD;
     margin-bottom: 10px;
@@ -200,6 +203,11 @@ button.stop-button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color var(--transition-speed);
+}
+
+body.dark-mode #task-list li {
+    background-color: var(--card-dark);
 }
 
 #task-list li button {
