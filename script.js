@@ -156,6 +156,30 @@ function addTask() {
     newTaskInput.value = "";
 }
 
+
+// Add Copy to Clipboard Functionality
+function copyToClipboard() {
+    const linkInput = document.getElementById('shareable-link');
+    const feedback = document.getElementById('copy-feedback');
+
+    if (linkInput.value) {
+        navigator.clipboard.writeText(linkInput.value).then(() => {
+            // Show feedback
+            feedback.style.display = 'inline';
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy link:', err);
+        });
+    } else {
+        alert('No link available to copy. Generate a link first.');
+    }
+}
+
+// Event Listener for Copy Link Button
+document.getElementById('copy-link').addEventListener('click', copyToClipboard);
+
 // Event Listeners
 themeToggle.addEventListener("click", toggleTheme);
 timerTypeSelect.addEventListener("change", switchTimerType);
