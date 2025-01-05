@@ -208,6 +208,7 @@ button.stop-button:hover {
     padding: 0;
 }
 
+
 #task-list li {
     background-color: var(--card-light);
     padding: 15px;
@@ -215,12 +216,13 @@ button.stop-button:hover {
     margin-bottom: 10px;
     border-radius: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+    align-items: center; /* Aligns the text and button vertically */
+    justify-content: space-between; /* Ensures proper spacing between text and button */
     transition: background-color var(--transition-speed);
-    overflow: hidden;
-    word-break: break-word;
+    overflow: hidden; /* Prevents content overflow */
+    word-wrap: break-word; /* Wraps long text within the container */
+    white-space: nowrap; /* Prevents excessive wrapping of text */
+    text-overflow: ellipsis; /* Truncates text if it overflows */
 }
 
 body.dark-mode #task-list li {
@@ -231,16 +233,17 @@ body.dark-mode #task-list li {
     background-color: var(--accent-color);
     color: var(--text-light);
     border: none;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Adds padding for better button size */
     border-radius: 50px;
     cursor: pointer;
     transition: background-color var(--transition-speed);
-    flex-shrink: 0;
+    flex-shrink: 0; /* Prevents button from shrinking */
 }
 
 #task-list li button:hover {
     background-color: #C0001A;
 }
+
 
 /* Animations */
 @keyframes fadeIn {
