@@ -1,64 +1,85 @@
 /* General Styles */
+:root {
+    --primary-color: #6200ea;
+    --secondary-color: #03dac5;
+    --background-light: #f0f0f0;
+    --background-dark: #121212;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --font-family: 'Poppins', sans-serif;
+    --transition-speed: 0.3s;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: var(--background-light);
+    color: var(--text-dark);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 header {
     width: 100%;
-    background-color: #6200ea;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--text-light);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 header button {
-    background-color: #fff;
-    color: #6200ea;
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
     border: none;
-    padding: 5px 10px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color var(--transition-speed);
 }
 
 header button:hover {
-    background-color: #eee;
+    background-color: #02b3a4;
 }
 
 main {
     width: 90%;
     max-width: 800px;
     margin-top: 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 section {
-    background-color: #fff;
+    background-color: var(--text-light);
     border-radius: 10px;
     padding: 20px;
-    margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 h2 {
     margin-top: 0;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
 }
 
 input, select, button {
@@ -68,19 +89,28 @@ input, select, button {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: box-shadow var(--transition-speed);
+}
+
+input:focus, select:focus, button:focus {
+    box-shadow: 0 0 5px var(--primary-color);
+    outline: none;
 }
 
 button {
-    background-color: #6200ea;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--text-light);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
 button:hover {
     background-color: #4500b5;
+    transform: scale(1.05);
 }
 
 /* Countdown Timer Styles */
@@ -90,11 +120,13 @@ button:hover {
     align-items: center;
     font-size: 1.5rem;
     margin-top: 20px;
+    animation: fadeIn var(--transition-speed) ease-in-out;
 }
 
 #time-remaining span {
     font-weight: bold;
     font-size: 1.25rem;
+    color: var(--secondary-color);
 }
 
 /* Pomodoro Timer Styles */
@@ -102,6 +134,7 @@ button:hover {
     text-align: center;
     font-size: 2rem;
     margin-top: 20px;
+    animation: fadeIn var(--transition-speed) ease-in-out;
 }
 
 /* To-Do List Styles */
@@ -123,12 +156,12 @@ button:hover {
 
 #task-list li button {
     background-color: #e53935;
-    color: #fff;
+    color: var(--text-light);
     border: none;
     padding: 5px;
     border-radius: 3px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color var(--transition-speed);
 }
 
 #task-list li button:hover {
@@ -137,30 +170,58 @@ button:hover {
 
 /* Light/Dark Mode Styles */
 body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
+    background-color: var(--background-dark);
+    color: var(--text-light);
 }
 
 body.dark-mode header {
     background-color: #1e1e1e;
-    color: #e0e0e0;
+    color: var(--text-light);
 }
 
 body.dark-mode header button {
     background-color: #333;
-    color: #e0e0e0;
+    color: var(--text-light);
 }
 
 body.dark-mode section {
     background-color: #1e1e1e;
-    color: #e0e0e0;
+    color: var(--text-light);
 }
 
 body.dark-mode button {
     background-color: #333;
-    color: #e0e0e0;
+    color: var(--text-light);
 }
 
 body.dark-mode button:hover {
     background-color: #555;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    input, select, button {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
 }
