@@ -76,7 +76,6 @@ header button {
     font-size: 1rem;
     cursor: pointer;
     margin-top: 15px;
-    width: auto;
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
@@ -91,7 +90,7 @@ main {
     margin-top: 40px;
     display: grid;
     gap: 30px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 section {
@@ -120,18 +119,11 @@ h2 {
     font-weight: 600;
 }
 
-/* Combined Timer Type and Share Timer Section */
+/* Timer Type and Share Timer Section */
 #timer-and-share {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-}
-
-#timer-and-share select,
-#timer-and-share button,
-#timer-and-share input {
-    width: 100%;
-    margin-top: 10px;
 }
 
 input, select, button {
@@ -176,12 +168,6 @@ button:hover {
     animation: fadeIn var(--transition-speed) ease-in-out;
 }
 
-#time-remaining span {
-    font-weight: bold;
-    font-size: 1.25rem;
-    color: var(--secondary-color);
-}
-
 /* Pomodoro Timer Styles */
 #pomodoro-display {
     text-align: center;
@@ -208,20 +194,16 @@ button.stop-button:hover {
     padding: 0;
 }
 
-
 #task-list li {
     background-color: var(--card-light);
-    padding: 10px 15px; /* Adjust padding for a balanced look */
+    padding: 10px 15px;
     border: 1px solid #DDD;
     margin-bottom: 10px;
     border-radius: 10px;
     display: flex;
-    justify-content: space-between; /* Ensures proper spacing between text and button */
-    align-items: center; /* Aligns items vertically in the center */
+    justify-content: space-between;
+    align-items: center;
     transition: background-color var(--transition-speed);
-    overflow: hidden;
-    gap: 10px; /* Adds spacing between text and button */
-    word-break: break-word; /* Prevents overflowing text */
 }
 
 body.dark-mode #task-list li {
@@ -232,25 +214,16 @@ body.dark-mode #task-list li {
     background-color: var(--accent-color);
     color: var(--text-light);
     border: none;
-    padding: 8px 16px; /* Reduces padding for better size */
-    border-radius: 20px; /* Rounded corners for a softer appearance */
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color var(--transition-speed), transform 0.2s ease-in-out;
-    flex-shrink: 0; /* Ensures the button does not shrink */
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
 #task-list li button:hover {
     background-color: #C0001A;
-    transform: scale(1.05); /* Adds a slight zoom effect on hover */
+    transform: scale(1.05);
 }
-
-#task-list li span {
-    flex-grow: 1; /* Ensures the text takes available space */
-    white-space: nowrap; /* Prevents unnecessary wrapping of text */
-    text-overflow: ellipsis; /* Truncates overflowing text with ellipsis */
-    overflow: hidden; /* Prevents text from overflowing outside the container */
-}
-
 
 /* Animations */
 @keyframes fadeIn {
