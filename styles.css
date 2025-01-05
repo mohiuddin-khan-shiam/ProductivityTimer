@@ -14,8 +14,8 @@
     --button-hover: #3ed5a5;
     --title-color-light: #4A90E2;
     --title-color-dark: #FFD700;
-    --header-gradient-light: linear-gradient(90deg, #4A90E2, #50E3C2);
-    --header-gradient-dark: linear-gradient(90deg, #1E1E1E, #333333);
+    --header-gradient-light: linear-gradient(135deg, #4A90E2, #6DD5FA, #50E3C2);
+    --header-gradient-dark: linear-gradient(135deg, #232526, #414345);
 }
 
 body {
@@ -41,7 +41,7 @@ header {
     width: 100%;
     background: var(--header-gradient-light);
     color: var(--text-light);
-    padding: 20px 20px 40px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,6 +76,7 @@ header button {
     font-size: 1rem;
     cursor: pointer;
     margin-top: 15px;
+    width: auto;
     transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
