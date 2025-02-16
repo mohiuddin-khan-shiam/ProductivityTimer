@@ -1,6 +1,6 @@
 # Productivity Timer
 
-**Productivity Timer** is a comprehensive web application designed to help you manage your time efficiently. It combines an event countdown, a Pomodoro timer, and a built-in to-do list into one streamlined tool, making it easier than ever to stay organized and boost your productivity.
+**Productivity Timer** is an all-in-one web application designed to help you manage your time effectively. It integrates an event countdown, a Pomodoro timer, and a built-in to-do list in one clean, responsive interface—keeping you organized and boosting your productivity.
 
 [Live Demo](https://mohiuddin-khan-shiam.github.io/ProductivityTimer/) | [GitHub Repository](https://github.com/mohiuddin-khan-shiam/ProductivityTimer)
 
@@ -9,37 +9,47 @@
 ## ✨ Features
 
 ### 1. Multiple Timer Types
-- **Event Countdown:** Set a countdown for any upcoming event and receive notifications when the time is up.
-- **Pomodoro Timer:** Use the Pomodoro Technique to structure your work sessions and breaks for maximum focus.
+- **Event Countdown:** Set a countdown for any upcoming event and receive notifications when time is up.
+- **Pomodoro Timer:** Structure your work sessions and breaks with the Pomodoro technique for enhanced focus.
 
 ### 2. Shareable Links
-- Generate a unique URL containing your timer settings (e.g., event name and date) and easily share it with others.
+- Generate a unique URL containing your timer settings (e.g., event details and time) and easily share it with others.
 
 ### 3. Custom Themes
-- Toggle between **Light Mode** and **Dark Mode** with a compact, easy-to-use button for a comfortable viewing experience.
+- Toggle between **Light Mode** and **Dark Mode** using a compact, unobtrusive switch button.
 
 ### 4. Integrated To-Do List
-- Add, delete, and clear tasks to keep track of your daily goals. Your tasks are saved in your browser's local storage for persistent organization.
+- Manage your daily tasks with an integrated to-do list. Add, delete, and clear tasks with ease. Your tasks persist across sessions using local storage.
 
 ### 5. Responsive Design
-- The website is fully responsive and optimized for all devices, ensuring a seamless experience whether you’re on a desktop, tablet, or smartphone.
+- Fully optimized for all devices, ensuring a seamless user experience on desktops, tablets, and smartphones.
 
 ---
 
 ## 💡 How It Works
 
 1. **Choose a Timer:**  
-   Select between an event countdown or a Pomodoro timer using the dropdown menu.
+   Select your preferred timer (Event Countdown or Pomodoro) using the dropdown menu.
 
 2. **Set Your Timer:**  
-   - For the countdown: Enter the event name and select the event time.
-   - For the Pomodoro timer: Input your desired work and break durations.
+   - **Countdown:** Enter the event name and select the event time.  
+   - **Pomodoro:** Set your desired work and break durations.
 
 3. **Get Notified & Share:**  
-   Receive in-page notifications when your timer completes. You can also generate and copy a shareable link to share your timer settings with friends or colleagues.
+   Receive in-page notifications when the timer ends and generate a shareable link to distribute your timer settings.
 
 4. **Stay Organized:**  
-   Use the integrated to-do list to manage your tasks. Add new tasks, delete individual ones, or clear all tasks when needed.
+   Use the integrated to-do list to add, delete, or clear tasks, ensuring you stay on track with your daily goals.
+
+---
+
+## 📸 Screenshots
+
+### Light Mode
+![Light Mode](assets/light-mode.png)
+
+### Dark Mode
+![Dark Mode](assets/dark-mode.png)
 
 ---
 
@@ -48,12 +58,14 @@
 ```
 ProductivityTimer/
 ├── index.html        # Main HTML file
-├── styles.css        # CSS for styling and responsive design
-├── script.js         # JavaScript for timer functionality, theme toggle, and task management
+├── styles.css        # CSS for styling
+├── script.js         # JavaScript for functionality
 ├── README.md         # Project documentation
-└── assets/           # Folder for images and icons
-    ├── timer-icon.png
-    └── (other assets)
+├── LICENSE           # MIT License
+└── assets/           # Folder for images and other assets
+    ├── light-mode.png
+    ├── dark-mode.png
+    └── timer-icon.png
 ```
 
 ---
@@ -66,47 +78,45 @@ To run the project locally:
    ```bash
    git clone https://github.com/mohiuddin-khan-shiam/ProductivityTimer.git
    ```
-
 2. **Navigate to the Project Directory:**
    ```bash
    cd ProductivityTimer
    ```
-
-3. **Open the `index.html` File:**  
-   Open `index.html` in your web browser to view the application.
+3. **Open `index.html`:**  
+   Open the file in your web browser to launch the application.
 
 ---
 
 ## 📝 Usage
 
 1. **Select Timer Type:**  
-   Choose between the event countdown and the Pomodoro timer from the dropdown menu.
+   Use the dropdown to choose between the Event Countdown and the Pomodoro Timer.
 
-2. **Set Up Your Timer:**  
-   - **Countdown:** Enter the event name and choose the event time.
-   - **Pomodoro:** Set the durations for work and break sessions.
+2. **Set Your Timer:**  
+   - **Countdown:** Enter the event name and event time.
+   - **Pomodoro:** Input the durations for work and break sessions.
 
 3. **Share Your Timer:**  
-   Generate a shareable link and copy it to your clipboard.
+   Generate a shareable link for your timer settings and copy it to your clipboard.
 
 4. **Manage Tasks:**  
-   Use the built-in to-do list to add, delete, or clear tasks and keep track of your goals.
+   Use the integrated to-do list to add tasks, delete individual tasks, or clear all tasks.
 
 5. **Switch Themes:**  
-   Toggle between Light and Dark modes for a comfortable viewing experience.
+   Toggle between Light and Dark modes with the compact mode switch button.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, suggestions, and bug reports are always welcome!  
-If you have any ideas or improvements, please open an issue or submit a pull request on the [GitHub Repository](https://github.com/mohiuddin-khan-shiam/ProductivityTimer).
+Contributions, suggestions, and bug reports are welcome!  
+If you have ideas for improvements, please open an issue or submit a pull request on the [GitHub Repository](https://github.com/mohiuddin-khan-shiam/ProductivityTimer).
 
 ---
 
 ## 📜 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
