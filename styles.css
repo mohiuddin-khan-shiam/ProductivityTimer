@@ -81,7 +81,7 @@ header {
   width: 100%;
   background: var(--header-gradient-light);
   color: var(--text-light);
-  padding: 0; /* Header now mainly wraps the hero */
+  padding: 0; /* Header mainly wraps the hero */
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 20px 20px;
   transition: background var(--transition-speed);
@@ -91,15 +91,15 @@ body.dark-mode header {
   background: var(--header-gradient-dark);
 }
 
-/* Theme Toggle Button (smaller) */
+/* Theme Toggle Button (more compact) */
 #theme-toggle {
   margin-top: 20px;
   background-color: var(--accent-color);
   color: var(--text-light);
   border: none;
-  padding: 8px 16px; /* Reduced padding */
+  padding: 8px 16px; /* Reduced padding for a more compact button */
   border-radius: 50px;
-  font-size: 0.9rem; /* Smaller text */
+  font-size: 0.9rem;
   cursor: pointer;
   transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
@@ -125,7 +125,10 @@ section {
   border-radius: 15px;
   padding: 25px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+  transition:
+    transform var(--transition-speed),
+    box-shadow var(--transition-speed),
+    background-color var(--transition-speed);
   color: var(--text-dark);
 }
 
@@ -146,38 +149,7 @@ h2 {
   font-weight: 600;
 }
 
-/* How It Works Section */
-#how-it-works ol {
-  margin: 0;
-  padding-left: 20px;
-}
-
-#how-it-works li {
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-/* FAQ Section */
-#faq details {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: var(--card-light);
-}
-
-body.dark-mode #faq details {
-  background-color: var(--card-dark);
-  border-color: #444;
-}
-
-#faq summary {
-  font-weight: bold;
-  cursor: pointer;
-  outline: none;
-}
-
-/* Form & Controls */
+/* Timer Form & Controls */
 input, select, button {
   font-size: 1rem;
   padding: 12px;
@@ -233,18 +205,6 @@ button:hover {
   animation: fadeIn var(--transition-speed) ease-in-out;
 }
 
-button.stop-button {
-  background-color: var(--accent-color);
-  color: var(--text-light);
-  margin-left: 10px;
-  padding: 10px 20px;
-  border-radius: 50px;
-}
-
-button.stop-button:hover {
-  background-color: #C0001A;
-}
-
 /* To-Do List Styles */
 #task-list {
   list-style: none;
@@ -291,6 +251,37 @@ body.dark-mode #task-list li {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+/* How It Works Section */
+#how-it-works ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+#how-it-works li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* FAQ Section */
+#faq details {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: var(--card-light);
+}
+
+body.dark-mode #faq details {
+  background-color: var(--card-dark);
+  border-color: #444;
+}
+
+#faq summary {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
 }
 
 /* Animations */
