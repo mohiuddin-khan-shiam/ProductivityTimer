@@ -161,7 +161,9 @@ input, select, button {
   transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-input:focus, select:focus, button:focus {
+input:focus,
+select:focus,
+button:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 8px var(--primary-color);
   outline: none;
@@ -253,6 +255,24 @@ body.dark-mode #task-list li {
   overflow: hidden;
 }
 
+/* Clear All Tasks Button */
+#clear-tasks {
+  background-color: var(--accent-color);
+  color: var(--text-light);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  margin-bottom: 10px;
+}
+
+#clear-tasks:hover {
+  background-color: #C0001A;
+  transform: scale(1.05);
+}
+
 /* How It Works Section */
 #how-it-works ol {
   margin: 0;
@@ -304,7 +324,9 @@ body.dark-mode #faq details {
   section {
     padding: 20px;
   }
-  input, select, button {
+  input,
+  select,
+  button {
     font-size: 0.9rem;
     padding: 10px;
   }
@@ -333,7 +355,7 @@ body.dark-mode #faq details {
   color: var(--text-light);
   padding: 10px 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   opacity: 0.9;
   font-size: 1rem;
