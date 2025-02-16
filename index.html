@@ -1,87 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A versatile countdown timer with multiple features including light/dark mode, progress visualization, and more.">
-    <title>Countdown Timer</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A versatile countdown timer with multiple features including light/dark mode, progress visualization, and more.">
+  <meta name="keywords" content="Countdown Timer, Pomodoro Timer, Productivity, Task Management">
+  <meta name="author" content="Shiam">
+  <title>Countdown Timer</title>
+  <link rel="icon" type="image/png" href="assets/timer-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-    <header>
-        <h1>Countdown Timer</h1>
-        <button id="theme-toggle">Switch to Dark Mode</button>
-    </header>
+  <header>
+    <h1>Countdown Timer</h1>
+    <button id="theme-toggle" aria-label="Toggle theme">Switch to Dark Mode</button>
+  </header>
 
-    <main>
-        <!-- Timer Selection -->
-        <section id="timer-options">
-            <h2>Select Timer Type</h2>
-            <select id="timer-type">
-                <option value="countdown">Event Countdown</option>
-                <option value="pomodoro">Pomodoro Timer</option>
-            </select>
-        </section>
+  <main>
+    <!-- Timer Selection -->
+    <section id="timer-options">
+      <h2>Select Timer Type</h2>
+      <label for="timer-type" class="visually-hidden">Timer Type</label>
+      <select id="timer-type" aria-label="Timer Type">
+        <option value="countdown">Event Countdown</option>
+        <option value="pomodoro">Pomodoro Timer</option>
+      </select>
+    </section>
 
-        <!-- Countdown Timer -->
-        <section id="countdown-timer">
-            <h2>Set Countdown</h2>
-            <input type="text" id="event-name" placeholder="Event Name">
-            <input type="datetime-local" id="event-time">
-            <button id="start-countdown">Start Timer</button>
+    <!-- Countdown Timer -->
+    <section id="countdown-timer">
+      <h2>Set Countdown</h2>
+      <label for="event-name" class="visually-hidden">Event Name</label>
+      <input type="text" id="event-name" placeholder="Event Name" aria-label="Event Name">
+      
+      <label for="event-time" class="visually-hidden">Event Time</label>
+      <input type="datetime-local" id="event-time" aria-label="Event Time">
+      
+      <button id="start-countdown" aria-label="Start Countdown Timer">Start Timer</button>
 
-            <div id="countdown-display">
-                <h3 id="countdown-event">Event: </h3>
-                <div id="time-remaining">
-                    <span id="days">00</span> Days
-                    <span id="hours">00</span> Hours
-                    <span id="minutes">00</span> Minutes
-                    <span id="seconds">00</span> Seconds
-                </div>
-            </div>
-        </section>
+      <div id="countdown-display" aria-live="polite">
+        <h3 id="countdown-event">Event:</h3>
+        <div id="time-remaining">
+          <span id="days" aria-label="Days remaining">00</span> Days
+          <span id="hours" aria-label="Hours remaining">00</span> Hours
+          <span id="minutes" aria-label="Minutes remaining">00</span> Minutes
+          <span id="seconds" aria-label="Seconds remaining">00</span> Seconds
+        </div>
+      </div>
+    </section>
 
-        <!-- Pomodoro Timer -->
-        <section id="pomodoro-timer" style="display: none;">
-            <h2>Pomodoro Timer</h2>
-            <div id="pomodoro-settings">
-                <label for="work-duration">Work Duration (minutes):</label>
-                <input type="number" id="work-duration" min="1" max="60" value="25">
-                <label for="break-duration">Break Duration (minutes):</label>
-                <input type="number" id="break-duration" min="1" max="15" value="5">
-                <button id="start-pomodoro">Start Pomodoro</button>
-            </div>
+    <!-- Pomodoro Timer -->
+    <section id="pomodoro-timer" style="display: none;">
+      <h2>Pomodoro Timer</h2>
+      <div id="pomodoro-settings">
+        <label for="work-duration">Work Duration (minutes):</label>
+        <input type="number" id="work-duration" min="1" max="60" value="25" aria-label="Work Duration">
+        
+        <label for="break-duration">Break Duration (minutes):</label>
+        <input type="number" id="break-duration" min="1" max="15" value="5" aria-label="Break Duration">
+        
+        <button id="start-pomodoro" aria-label="Start Pomodoro Timer">Start Pomodoro</button>
+      </div>
 
-            <div id="pomodoro-display">
-                <h3 id="pomodoro-status">Work Time</h3>
-                <div id="pomodoro-time">00:00</div>
-            </div>
-        </section>
+      <div id="pomodoro-display" aria-live="polite">
+        <h3 id="pomodoro-status">Work Time</h3>
+        <div id="pomodoro-time">00:00</div>
+      </div>
+    </section>
 
-        <!-- Shareable Link -->
-        <section id="share-link">
-            <h2>Share Your Timer</h2>
-            <button id="generate-link">Generate Shareable Link</button>
-            <input type="text" id="shareable-link" readonly>
-            <button id="copy-link">Copy Link</button>
-            <span id="copy-feedback" style="display: none; color: green; margin-left: 10px;">Link copied!</span>
-        </section>
+    <!-- Shareable Link -->
+    <section id="share-link">
+      <h2>Share Your Timer</h2>
+      <button id="generate-link" aria-label="Generate Shareable Link">Generate Shareable Link</button>
+      <input type="text" id="shareable-link" readonly aria-label="Shareable Link">
+      <button id="copy-link" aria-label="Copy Link to Clipboard">Copy Link</button>
+      <span id="copy-feedback" style="display: none; color: green; margin-left: 10px;">Link copied!</span>
+    </section>
 
-        <!-- To-Do List -->
-        <section id="to-do-list">
-            <h2>To-Do List</h2>
-            <input type="text" id="new-task" placeholder="Add a new task">
-            <button id="add-task">Add Task</button>
-            <ul id="task-list"></ul>
-        </section>
-    </main>
+    <!-- To-Do List -->
+    <section id="to-do-list">
+      <h2>To-Do List</h2>
+      <label for="new-task" class="visually-hidden">New Task</label>
+      <input type="text" id="new-task" placeholder="Add a new task" aria-label="New Task">
+      <button id="add-task" aria-label="Add Task">Add Task</button>
+      <ul id="task-list"></ul>
+    </section>
+  </main>
 
-    <footer>
-        <p>Made with ❤️ by Shiam</p>
-    </footer>
+  <footer>
+    <p>Made with ❤️ by Shiam</p>
+  </footer>
 </body>
-
 </html>
