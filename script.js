@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add ARIA role for screen readers
     notification.setAttribute("role", "alert");
     document.body.appendChild(notification);
+
     setTimeout(() => {
       notification.remove();
     }, duration);
@@ -45,7 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleTheme = () => {
     isDarkMode = !isDarkMode;
     document.body.classList.toggle("dark-mode", isDarkMode);
-    themeToggle.textContent = isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode";
+    themeToggle.textContent = isDarkMode
+      ? "Switch to Light Mode"
+      : "Switch to Dark Mode";
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   };
 
@@ -74,55 +77,85 @@ document.addEventListener("DOMContentLoaded", () => {
   // Countdown Timer Functionality
   const startCountdown = () => {
     clearInterval(countdownInterval);
+
     const eventName = eventNameInput.value.trim();
     const eventTimeValue = eventTimeInput.value;
     const eventTime = new Date(eventTimeValue);
+
     if (!eventName || !eventTimeValue || isNaN(eventTime.getTime())) {
       showNotification("Please provide a valid event name and time.");
       return;
     }
+
     countdownDisplay.querySelector("#countdown-event").textContent = `Event: ${eventName}`;
+
     countdownInterval = setInterval(() => {
       const now = new Date();
       const diff = eventTime - now;
+
       if (diff <= 0) {
         clearInterval(countdownInterval);
         showNotification(`${eventName} has arrived!`);
         return;
       }
+
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const hours = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor(
+        (diff % (1000 * 60 * 60)) / (1000 * 60)
+      );
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      countdownDisplay.querySelector("#days").textContent = days.toString().padStart(2, "0");
-      countdownDisplay.querySelector("#hours").textContent = hours.toString().padStart(2, "0");
-      countdownDisplay.querySelector("#minutes").textContent = minutes.toString().padStart(2, "0");
-      countdownDisplay.querySelector("#seconds").textContent = seconds.toString().padStart(2, "0");
+
+      countdownDisplay.querySelector("#days").textContent = days
+        .toString()
+        .padStart(2, "0");
+      countdownDisplay.querySelector("#hours").textContent = hours
+        .toString()
+        .padStart(2, "0");
+      countdownDisplay.querySelector("#minutes").textContent = minutes
+        .toString()
+        .padStart(2, "0");
+      countdownDisplay.querySelector("#seconds").textContent = seconds
+        .toString()
+        .padStart(2, "0");
     }, 1000);
   };
 
   // Pomodoro Timer Functionality
   const startPomodoro = () => {
     clearInterval(pomodoroInterval);
+
     const workDuration = parseInt(workDurationInput.value, 10) * 60;
     const breakDuration = parseInt(breakDurationInput.value, 10) * 60;
+
     if (isNaN(workDuration) || isNaN(breakDuration)) {
       showNotification("Please provide valid durations for work and break.");
       return;
     }
+
     let isWorkTime = true;
     let timeLeft = workDuration;
     pomodoroStatus.textContent = "Work Time";
+
     pomodoroInterval = setInterval(() => {
       if (timeLeft <= 0) {
         isWorkTime = !isWorkTime;
         timeLeft = isWorkTime ? workDuration : breakDuration;
-        pomodoroStatus.textContent = isWorkTime ? "Work Time" : "Break Time";
-        showNotification(isWorkTime ? "Back to work!" : "Take a break!");
+        pomodoroStatus.textContent = isWorkTime
+          ? "Work Time"
+          : "Break Time";
+        showNotification(
+          isWorkTime ? "Back to work!" : "Take a break!"
+        );
       }
+
       const minutes = Math.floor(timeLeft / 60);
       const seconds = timeLeft % 60;
-      pomodoroTime.textContent = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+      pomodoroTime.textContent = `${minutes
+        .toString()
+        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
       timeLeft--;
     }, 1000);
   };
@@ -131,10 +164,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const generateShareableLink = () => {
     const eventName = eventNameInput.value.trim();
     const eventTime = eventTimeInput.value;
+
     if (!eventName || !eventTime) {
       showNotification("Please provide an event name and time.");
       return;
     }
+
     const url = new URL(window.location.href);
     url.searchParams.set("event", eventName);
     url.searchParams.set("date", eventTime);
@@ -147,6 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const eventName = params.get("event");
     const eventTime = params.get("date");
+
     if (eventName && eventTime) {
       eventNameInput.value = eventName;
       eventTimeInput.value = eventTime;
@@ -177,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskSpan = document.createElement("span");
     taskSpan.textContent = taskText;
     li.appendChild(taskSpan);
+
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.setAttribute("aria-label", "Delete task");
@@ -185,22 +222,28 @@ document.addEventListener("DOMContentLoaded", () => {
       saveTasks();
     });
     li.appendChild(deleteButton);
+
     taskList.appendChild(li);
   };
 
   // Add a new task from the input field
   const addTask = () => {
     const taskText = newTaskInput.value.trim();
-    if (!taskText) return;
+    if (!taskText) {
+      showNotification("Please enter a valid task before adding.");
+      return;
+    }
     addTaskElement(taskText);
     newTaskInput.value = "";
     saveTasks();
+    newTaskInput.focus(); // Refocus on the input for convenience
   };
 
   // Copy shareable link to clipboard
   const copyToClipboard = () => {
     if (shareableLinkInput.value) {
-      navigator.clipboard.writeText(shareableLinkInput.value)
+      navigator.clipboard
+        .writeText(shareableLinkInput.value)
         .then(() => {
           const feedback = document.getElementById("copy-feedback");
           feedback.style.display = "inline";
