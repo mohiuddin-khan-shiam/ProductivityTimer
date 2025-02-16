@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A versatile countdown timer with multiple features including light/dark mode, progress visualization, and more.">
-  <meta name="keywords" content="Countdown Timer, Pomodoro Timer, Productivity, Task Management">
+  <meta name="description" content="Productivity Timer helps you manage your time with event countdowns, Pomodoro sessions, and a built-in to-do list. Stay focused and boost your productivity.">
+  <meta name="keywords" content="Productivity Timer, Countdown Timer, Pomodoro Timer, To-Do List, Time Management, Productivity">
   <meta name="author" content="Shiam">
-  <title>Countdown Timer</title>
+  <title>Productivity Timer</title>
   <link rel="icon" type="image/png" href="assets/timer-icon.png">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
@@ -14,13 +14,46 @@
 <body>
   <header>
     <div class="hero">
-      <h1>Countdown Timer</h1>
-      <p class="tagline">Stay on track with event countdowns and focused Pomodoro sessions.</p>
+      <h1>Productivity Timer</h1>
+      <p class="tagline">Manage your time with event countdowns, Pomodoro sessions, and an integrated to-do list.</p>
+      <p class="description">Boost your productivity and stay on track throughout your day with our all-in-one timer tool. Whether you have an upcoming event or need to focus with timed work sessions, Productivity Timer is here to help.</p>
       <button id="theme-toggle" aria-label="Toggle theme">Switch to Dark Mode</button>
     </div>
   </header>
 
   <main>
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+      <h2>How It Works</h2>
+      <ol>
+        <li><strong>Choose a Timer:</strong> Select between an event countdown or a Pomodoro timer using the dropdown.</li>
+        <li><strong>Set Your Timer:</strong> Enter the event name and time, or set your preferred work and break durations.</li>
+        <li><strong>Get Notified:</strong> Receive notifications when your timer completes and share your timer with others.</li>
+        <li><strong>Stay Organized:</strong> Use the built-in to-do list to keep track of your tasks.</li>
+      </ol>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>What is Productivity Timer?</summary>
+        <p>Productivity Timer is an all-in-one web tool designed to help you manage your time effectively. It features an event countdown, a Pomodoro timer, and a to-do list, all in one place.</p>
+      </details>
+      <details>
+        <summary>How do I switch between the countdown and Pomodoro timers?</summary>
+        <p>You can choose your preferred timer from the dropdown menu in the "Timer Selection" section.</p>
+      </details>
+      <details>
+        <summary>Can I share my timer with others?</summary>
+        <p>Yes, simply generate a shareable link in the "Share Your Timer" section and copy it to your clipboard.</p>
+      </details>
+      <details>
+        <summary>What happens if I refresh the page?</summary>
+        <p>Your to-do list items and theme settings are saved in your browser's local storage, though timer progress may reset on refresh.</p>
+      </details>
+    </section>
+
     <!-- Timer Selection -->
     <section id="timer-options">
       <h2>Select Timer Type</h2>
