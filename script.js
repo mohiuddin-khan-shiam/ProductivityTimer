@@ -25,14 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let isDarkMode = false;
 
   /**
-   * Display a temporary notification message.
+   * Display a temporary toast notification.
    * @param {string} message - The message to display.
    * @param {number} [duration=2000] - Duration in milliseconds.
    */
   const showNotification = (message, duration = 2000) => {
     const notification = document.createElement("div");
-    notification.textContent = message;
     notification.className = "toast-notification";
+    notification.textContent = message;
+    // Add ARIA role for screen readers
+    notification.setAttribute("role", "alert");
     document.body.appendChild(notification);
     setTimeout(() => {
       notification.remove();
@@ -62,11 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Timer Type Switch
   const switchTimerType = () => {
     const selectedType = timerTypeSelect.value;
-    countdownSection.style.display = selectedType === "countdown" ? "block" : "none";
-    pomodoroSection.style.display = selectedType === "pomodoro" ? "block" : "none";
+    countdownSection.style.display =
+      selectedType === "countdown" ? "block" : "none";
+    pomodoroSection.style.display =
+      selectedType === "pomodoro" ? "block" : "none";
   };
 
-  // Countdown Timer
+  // Countdown Timer Functionality
   const startCountdown = () => {
     clearInterval(countdownInterval);
 
@@ -96,14 +100,22 @@ document.addEventListener("DOMContentLoaded", () => {
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      countdownDisplay.querySelector("#days").textContent = days.toString().padStart(2, "0");
-      countdownDisplay.querySelector("#hours").textContent = hours.toString().padStart(2, "0");
-      countdownDisplay.querySelector("#minutes").textContent = minutes.toString().padStart(2, "0");
-      countdownDisplay.querySelector("#seconds").textContent = seconds.toString().padStart(2, "0");
+      countdownDisplay.querySelector("#days").textContent = days
+        .toString()
+        .padStart(2, "0");
+      countdownDisplay.querySelector("#hours").textContent = hours
+        .toString()
+        .padStart(2, "0");
+      countdownDisplay.querySelector("#minutes").textContent = minutes
+        .toString()
+        .padStart(2, "0");
+      countdownDisplay.querySelector("#seconds").textContent = seconds
+        .toString()
+        .padStart(2, "0");
     }, 1000);
   };
 
-  // Pomodoro Timer
+  // Pomodoro Timer Functionality
   const startPomodoro = () => {
     clearInterval(pomodoroInterval);
 
@@ -126,14 +138,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       const minutes = Math.floor(timeLeft / 60);
       const seconds = timeLeft % 60;
-      pomodoroTime.textContent = `${minutes.toString().padStart(2, "0")}:${seconds
+      pomodoroTime.textContent = `${minutes
         .toString()
-        .padStart(2, "0")}`;
+        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
       timeLeft--;
     }, 1000);
   };
 
-  // Generate Shareable Link
+  // Generate a shareable link for the event
   const generateShareableLink = () => {
     const eventName = eventNameInput.value.trim();
     const eventTime = eventTimeInput.value;
@@ -150,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showNotification("Shareable link generated!");
   };
 
-  // Load Timer from URL
+  // Load Timer from URL Parameters (if available)
   const loadTimerFromURL = () => {
     const params = new URLSearchParams(window.location.search);
     const eventName = params.get("event");
@@ -163,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // To-Do List: Save and Load tasks from localStorage
+  // To-Do List: Save tasks to localStorage
   const saveTasks = () => {
     const tasks = [];
     taskList.querySelectorAll("li").forEach((li) => {
@@ -172,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   };
 
+  // Load tasks from localStorage
   const loadTasks = () => {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks.forEach((taskText) => {
@@ -179,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Create a new task element
+  // Create a new task element and add it to the list
   const addTaskElement = (taskText) => {
     const li = document.createElement("li");
     const taskSpan = document.createElement("span");
@@ -197,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     taskList.appendChild(li);
   };
 
-  // Add To-Do Task
+  // Add a new task from the input field
   const addTask = () => {
     const taskText = newTaskInput.value.trim();
     if (!taskText) return;
@@ -206,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveTasks();
   };
 
-  // Copy to Clipboard Functionality
+  // Copy shareable link to clipboard
   const copyToClipboard = () => {
     if (shareableLinkInput.value) {
       navigator.clipboard
@@ -236,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
   addTaskButton.addEventListener("click", addTask);
   document.getElementById("copy-link").addEventListener("click", copyToClipboard);
 
-  // Initialize
+  // Initialize Application
   loadTheme();
   loadTimerFromURL();
   loadTasks();
