@@ -41,6 +41,8 @@ body.dark-mode {
 .hero {
   text-align: center;
   padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero h1 {
@@ -64,6 +66,16 @@ body.dark-mode .hero .tagline {
   color: var(--text-light);
 }
 
+.hero .description {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: var(--text-dark);
+}
+
+body.dark-mode .hero .description {
+  color: var(--text-light);
+}
+
 /* Header */
 header {
   width: 100%;
@@ -79,15 +91,15 @@ body.dark-mode header {
   background: var(--header-gradient-dark);
 }
 
-/* Theme Toggle Button inside Hero */
+/* Theme Toggle Button (smaller) */
 #theme-toggle {
   margin-top: 20px;
   background-color: var(--accent-color);
   color: var(--text-light);
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px; /* Reduced padding */
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.9rem; /* Smaller text */
   cursor: pointer;
   transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
@@ -107,7 +119,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-/* Sections */
+/* Sections Common Styles */
 section {
   background-color: var(--card-light);
   border-radius: 15px;
@@ -132,6 +144,37 @@ h2 {
   font-size: 1.8rem;
   color: var(--primary-color);
   font-weight: 600;
+}
+
+/* How It Works Section */
+#how-it-works ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+#how-it-works li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* FAQ Section */
+#faq details {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: var(--card-light);
+}
+
+body.dark-mode #faq details {
+  background-color: var(--card-dark);
+  border-color: #444;
+}
+
+#faq summary {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
 }
 
 /* Form & Controls */
@@ -299,7 +342,7 @@ body.dark-mode #task-list li {
   color: var(--text-light);
   padding: 10px 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   z-index: 1000;
   opacity: 0.9;
   font-size: 1rem;
