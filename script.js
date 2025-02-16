@@ -45,13 +45,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleTheme = () => {
     isDarkMode = !isDarkMode;
     document.body.classList.toggle("dark-mode", isDarkMode);
-    themeToggle.textContent = isDarkMode
-      ? "Switch to Light Mode"
-      : "Switch to Dark Mode";
+    themeToggle.textContent = isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode";
     localStorage.setItem("theme", isDarkMode ? "dark" : "light");
   };
 
-  // Load Saved Theme
+  // Load Saved Theme from localStorage
   const loadTheme = () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -61,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Timer Type Switch
+  // Switch Timer Type (Countdown vs. Pomodoro)
   const switchTimerType = () => {
     const selectedType = timerTypeSelect.value;
     if (selectedType === "countdown") {
