@@ -76,7 +76,6 @@ header button {
   font-size: 1rem;
   cursor: pointer;
   margin-top: 15px;
-  width: auto;
   transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
@@ -126,7 +125,6 @@ input, select, button {
   padding: 12px;
   margin: 12px 0;
   width: 100%;
-  max-width: 100%;
   box-sizing: border-box;
   border: 2px solid #E0E0E0;
   border-radius: 10px;
@@ -254,11 +252,9 @@ body.dark-mode #task-list li {
   header h1 {
     font-size: 1.6rem;
   }
-
   section {
     padding: 20px;
   }
-
   input, select, button {
     font-size: 0.9rem;
     padding: 10px;
