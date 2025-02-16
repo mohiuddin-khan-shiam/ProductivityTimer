@@ -1,281 +1,292 @@
 /* General Styles */
 :root {
-    --primary-color: #4A90E2;
-    --secondary-color: #50E3C2;
-    --accent-color: #FF4081;
-    --background-light: #FAFAFA;
-    --background-dark: #121212;
-    --card-light: #FFFFFF;
-    --card-dark: #1E1E1E;
-    --text-light: #E0E0E0;
-    --text-dark: #333333;
-    --font-family: 'Inter', sans-serif;
-    --transition-speed: 0.4s;
-    --button-hover: #3ed5a5;
-    --title-color-light: #4A90E2;
-    --title-color-dark: #FFD700;
-    --header-gradient-light: linear-gradient(135deg, #4A90E2, #6DD5FA, #50E3C2);
-    --header-gradient-dark: linear-gradient(135deg, #232526, #414345);
+  --primary-color: #4A90E2;
+  --secondary-color: #50E3C2;
+  --accent-color: #FF4081;
+  --background-light: #FAFAFA;
+  --background-dark: #121212;
+  --card-light: #FFFFFF;
+  --card-dark: #1E1E1E;
+  --text-light: #E0E0E0;
+  --text-dark: #333333;
+  --font-family: 'Inter', sans-serif;
+  --transition-speed: 0.4s;
+  --button-hover: #3ed5a5;
+  --title-color-light: #4A90E2;
+  --title-color-dark: #FFD700;
+  --header-gradient-light: linear-gradient(135deg, #4A90E2, #6DD5FA, #50E3C2);
+  --header-gradient-dark: linear-gradient(135deg, #232526, #414345);
 }
 
 body {
-    font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-light);
-    color: var(--text-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    transition: background-color var(--transition-speed), color var(--transition-speed);
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 body.dark-mode {
-    background-color: var(--background-dark);
-    color: var(--text-light);
+  background-color: var(--background-dark);
+  color: var(--text-light);
 }
 
 header {
-    width: 100%;
-    background: var(--header-gradient-light);
-    color: var(--text-light);
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 0 0 20px 20px;
-    transition: background var(--transition-speed);
+  width: 100%;
+  background: var(--header-gradient-light);
+  color: var(--text-light);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 20px 20px;
+  transition: background var(--transition-speed);
 }
 
 body.dark-mode header {
-    background: var(--header-gradient-dark);
+  background: var(--header-gradient-dark);
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.8rem;
-    font-weight: bold;
-    text-align: center;
-    color: var(--title-color-light);
-    transition: color var(--transition-speed);
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--title-color-light);
+  transition: color var(--transition-speed);
 }
 
 body.dark-mode header h1 {
-    color: var(--title-color-dark);
+  color: var(--title-color-dark);
 }
 
 header button {
-    background-color: var(--accent-color);
-    color: var(--text-light);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 15px;
-    width: auto;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
+  background-color: var(--accent-color);
+  color: var(--text-light);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  width: auto;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
 header button:hover {
-    background-color: var(--button-hover);
-    transform: scale(1.05);
+  background-color: var(--button-hover);
+  transform: scale(1.05);
 }
 
 main {
-    width: 90%;
-    max-width: 1200px;
-    margin-top: 40px;
-    display: grid;
-    gap: 30px;
-    grid-template-columns: 1fr 1fr;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 40px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr;
 }
 
 section {
-    background-color: var(--card-light);
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
-    color: var(--text-dark);
+  background-color: var(--card-light);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+  color: var(--text-dark);
 }
 
 section:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 body.dark-mode section {
-    background-color: var(--card-dark);
-    color: var(--text-light);
+  background-color: var(--card-dark);
+  color: var(--text-light);
 }
 
 h2 {
-    margin-top: 0;
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    font-weight: 600;
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 /* Combined Timer Type and Share Timer Section */
 #timer-and-share {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 #timer-and-share select,
 #timer-and-share button,
 #timer-and-share input {
-    width: 100%;
-    margin-top: 10px;
+  width: 100%;
+  margin-top: 10px;
 }
 
 input, select, button {
-    font-size: 1rem;
-    padding: 12px;
-    margin: 12px 0;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    border: 2px solid #E0E0E0;
-    border-radius: 10px;
-    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  font-size: 1rem;
+  padding: 12px;
+  margin: 12px 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #E0E0E0;
+  border-radius: 10px;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 input:focus, select:focus, button:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 8px var(--primary-color);
-    outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px var(--primary-color);
+  outline: none;
 }
 
 button {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
 button:hover {
-    background-color: var(--button-hover);
-    transform: scale(1.05);
+  background-color: var(--button-hover);
+  transform: scale(1.05);
 }
 
 /* Countdown Timer Styles */
 #countdown-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.5rem;
-    margin-top: 20px;
-    animation: fadeIn var(--transition-speed) ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  animation: fadeIn var(--transition-speed) ease-in-out;
 }
 
 #time-remaining span {
-    font-weight: bold;
-    font-size: 1.25rem;
-    color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--secondary-color);
 }
 
 /* Pomodoro Timer Styles */
 #pomodoro-display {
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 20px;
-    animation: fadeIn var(--transition-speed) ease-in-out;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 20px;
+  animation: fadeIn var(--transition-speed) ease-in-out;
 }
 
 button.stop-button {
-    background-color: var(--accent-color);
-    color: var(--text-light);
-    margin-left: 10px;
-    padding: 10px 20px;
-    border-radius: 50px;
+  background-color: var(--accent-color);
+  color: var(--text-light);
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
 }
 
 button.stop-button:hover {
-    background-color: #C0001A;
+  background-color: #C0001A;
 }
 
 /* To-Do List Styles */
 #task-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
-
 #task-list li {
-    background-color: var(--card-light);
-    padding: 10px 15px; /* Adjust padding for a balanced look */
-    border: 1px solid #DDD;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between; /* Ensures proper spacing between text and button */
-    align-items: center; /* Aligns items vertically in the center */
-    transition: background-color var(--transition-speed);
-    overflow: hidden;
-    gap: 10px; /* Adds spacing between text and button */
-    word-break: break-word; /* Prevents overflowing text */
+  background-color: var(--card-light);
+  padding: 10px 15px;
+  border: 1px solid #DDD;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color var(--transition-speed);
+  overflow: hidden;
+  gap: 10px;
+  word-break: break-word;
 }
 
 body.dark-mode #task-list li {
-    background-color: var(--card-dark);
+  background-color: var(--card-dark);
 }
 
 #task-list li button {
-    background-color: var(--accent-color);
-    color: var(--text-light);
-    border: none;
-    padding: 8px 16px; /* Reduces padding for better size */
-    border-radius: 20px; /* Rounded corners for a softer appearance */
-    cursor: pointer;
-    transition: background-color var(--transition-speed), transform 0.2s ease-in-out;
-    flex-shrink: 0; /* Ensures the button does not shrink */
+  background-color: var(--accent-color);
+  color: var(--text-light);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform 0.2s ease-in-out;
+  flex-shrink: 0;
 }
 
 #task-list li button:hover {
-    background-color: #C0001A;
-    transform: scale(1.05); /* Adds a slight zoom effect on hover */
+  background-color: #C0001A;
+  transform: scale(1.05);
 }
 
 #task-list li span {
-    flex-grow: 1; /* Ensures the text takes available space */
-    white-space: nowrap; /* Prevents unnecessary wrapping of text */
-    text-overflow: ellipsis; /* Truncates overflowing text with ellipsis */
-    overflow: hidden; /* Prevents text from overflowing outside the container */
+  flex-grow: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-
 
 /* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.6rem;
-    }
+  header h1 {
+    font-size: 1.6rem;
+  }
 
-    section {
-        padding: 20px;
-    }
+  section {
+    padding: 20px;
+  }
 
-    input, select, button {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
+  input, select, button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+/* Visually Hidden Class for Accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
